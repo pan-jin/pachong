@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'maoyanspider.spiders'
 #USER_AGENT = 'maoyanspider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -31,7 +31,7 @@ ROBOTSTXT_OBEY = True
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = True
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -50,9 +50,12 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'maoyanspider.middlewares.MaoyanspiderDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    #'maoyanspider.middlewares.MaoyanspiderDownloaderMiddleware': 543,
+    #  'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None, # 关闭默认方法
+    # 'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+    'maoyanspider.middlewares.RandomUserAgentMiddlware': 333,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
